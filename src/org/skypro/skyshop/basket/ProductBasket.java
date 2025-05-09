@@ -18,7 +18,7 @@ public class ProductBasket {
             products[count] = product;
             count++;
         } else {
-            System.out.println("YНевозможно добавить продукт");
+            System.out.println("Невозможно добавить продукт");
         }
     }
 
@@ -36,10 +36,19 @@ public class ProductBasket {
             return;
         }
 
+        int specialCount = 0;
+
         for (int i = 0; i < count; i++) {
-            System.out.println(products[i].getName() + ": " + products[i].getPrice());
+            Product product = products[i];
+            System.out.println(product.toString());
+
+            if (product.isSpecial()) {
+                specialCount++;
+            }
         }
+
         System.out.println("Итого: " + getTotalPrice());
+        System.out.println("Специальных товаров: " + specialCount);
     }
 
     public boolean containsProduct (String name) {
